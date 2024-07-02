@@ -15,17 +15,33 @@ saveBtn.addEventListener("click", function() {
         anotaciones.value = "";
         updateLocalStorage();
         render(notes);
+    }else{
+        alert("Por favor ingrese una tarea")
     }
 });
 // Funcion para seleccionar todas las tareas
 selectAll.addEventListener("click", function() {
+    if (notes.length === 0) {
+        alert("No hay tareas para seleccionar.");
+        return;
+    }
     notes.forEach(note => note.checked = true);
     updateLocalStorage();
     render(notes);
 });
 
 // Funcion para eliminar las tareas seleccionadas
-selectTareas.addEventListener("click", function() {
+selectTareas.addEventListener("dblclick", function() {
+    if (notes.length === 0) {
+        alert("No hay tareas para seleccionar.");
+        return;
+    }
+    const checkedNotes = notes.some(note => note.checked);
+    if (!checkedNotes) {
+        alert("Por favor, selecciona al menos una tarea para eliminar.");
+        return;
+    }
+
     const newNotes = notes.filter(note => !note.checked);
     notes.length = 0;
     notes.push(...newNotes);
@@ -72,7 +88,11 @@ function updateLocalStorage() {
 // funcion para descargar la lista actual en un txt
 
 function downloadNotes() {
-    const data = notes.map(note => `${note.checked ? '[x]' : 'Tarea: '} ${note.text}`).join('\n');
+    if (notes.length === 0) {
+        alert("No hay tareas para descargar.");
+        return;
+    }
+    const data = notes.map(note => `${note.checked ? '[Hecho | Done]' : 'Tarea: '} ${note.text}`).join('\n');
     const blob = new Blob([data], { type: 'text/plain' });
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');

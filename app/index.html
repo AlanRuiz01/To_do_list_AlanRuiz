@@ -14,12 +14,24 @@
     <div class="container">
         <div class="elements">
             <input type="text" id="text-el" placeholder="Escribe una tarea / Write a new task">
-            <button id="save-btn"> Guardar</button>
-            <button id="selected-btn"> Eliminar seleccionados</button>
-            <button id="select-all">Seleccionar Todos</button>
-            <ul id="ul-el"></ul>
-            <button id="download">Descargar Lista</button>
+            <div class="tooltip-container">
+                <button id="save-btn" class="tooltip-button">Guardar</button>
+                <span class="tooltip-text">Haz clic para guardar la tarea</span>
+            </div>
+            <div class="tooltip-container">
+                <button id="selected-btn" class="tooltip-button">Eliminar seleccionados</button>
+                <span class="tooltip-text">Haz doble click para eliminar las tareas seleccionadas</span>
+            </div>
+            <div class="tooltip-container">
+                <button id="select-all" class="tooltip-button">Seleccionar Todos</button>
+                <span class="tooltip-text">Haz clic para seleccionar todas las tareas</span>
+            </div>
+            <div class="tooltip-container">
+                <button id="download" class="tooltip-button">Descargar Lista</button>
+                <span class="tooltip-text">Haz clic para descargar la lista de tareas en formato txt</span>
+            </div>
         </div>
+        <ul id="ul-el"></ul>
     </div>
     <script src="./scripts/index.js"></script>
 </body>
