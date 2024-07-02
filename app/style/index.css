@@ -1,0 +1,37 @@
+body{
+    background-color: #FBE3A4;
+}
+#text-el{
+    min-width: 800px;
+    margin-bottom: 10px;
+}
+
+.container{
+    margin: 0;
+    padding: 10px 20px;
+    display: block;
+    margin: 0 auto;
+    flex-direction: column;
+    background-color: #E2D8BD;
+    width: 800px;
+    height: 800px;
+}
+
+#ul-el{
+    list-style-type: none;
+}
+
+ h1{
+    text-align: center;
+ }
+ 
+ .checkbox-button {
+ 
+    border-radius: 100%;
+ 
+}
+ 
+.terminado {
+    text-decoration: line-through;
+}
+ 
